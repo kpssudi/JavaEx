@@ -1,2 +1,2 @@
 # JavaEx
-Java Project
+JavaEx Project
