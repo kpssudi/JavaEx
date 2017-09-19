@@ -12,18 +12,18 @@ public class CashRegister1 {
 	private double purchase;
 	private double payment;
 	private double tax_rate;
-	private double taxable_purchase;
 	private double total_tax;
 	
 	public CashRegister1(double fix_tax_rate) {
 		purchase = 0;
 		payment = 0;
+		total_tax = 0;
 		tax_rate = fix_tax_rate;
 	}
 	public void recordTaxablePurchase(double amount){
-		double tax =taxable_purchase*tax_rate; 
+		double tax = (amount*(tax_rate/100));
 		total_tax = total_tax + tax;
-		taxable_purchase = taxable_purchase + tax;
+		purchase = purchase + amount + tax;
 	}
 	public double getTotalTax(){
 		return total_tax;
@@ -35,9 +35,9 @@ public class CashRegister1 {
 		payment = payment + amount;
 	}
 	public double giveChange(){
-		double change = payment - purchase;
-		purchase = 0;
-		payment = 0;
+		double change = payment - purchase;	
+			purchase = 0;
+			payment = 0;
 		return change;
 	}
 }
