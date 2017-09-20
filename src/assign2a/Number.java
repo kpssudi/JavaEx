@@ -11,4 +11,20 @@ package assign2a;
  */
 public class Number {
 
+	private double value;
+	public Number(){
+		value = 0;
+	}
+	public Number(double num){
+		value = num;
+	}
+	public Number(Number aNumber){
+		
+	}
+	public double get(){
+		return value;
+	}
+	public void set(double v){
+		value = v;
+	}
 }
