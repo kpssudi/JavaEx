@@ -1,5 +1,7 @@
 package assign2a;
 /**
+ * java association aggregation composition topic in YouTube
+ * Number.java
 (-) Number n1, n2, result
 (+) NumberSystem()
 (+) NumberSystem(Number n1)
@@ -16,51 +18,56 @@ package assign2a;
 (+) Number getResult()
  */
 public class NumberSystem {
-	private double n1;
-	private double n2;
-	private double result;
+	private Number n1;
+	private Number n2;
+	private Number result;
+	private NumberSystem _n;
+	
 	
 	public NumberSystem(){
-		n1 = 0;
-		n2 = 0;
-		result = 0;
+		
+		n1 = new Number();
+		//n1 = new Number(10);
+		//n1 = new Number(new Number(new Number()));
+		n2 = new Number();
+		result = new Number();
 	}
 	public NumberSystem(Number num1){
-		n1 = num1.get();
+		n1 = num1;
 	}
 	public NumberSystem(Number num1, Number num2){
-		n1 = num1.get();
-		n2 = num2.get();
+		n1 = num1;
+		n2 = num2;
 	}
 	public NumberSystem(NumberSystem n){
-		
+		_n = n;
 	}
 
 	public void add(){
-		result = n1 + n2;
+		result = new Number(n1.get() + n2.get());
 	}
 	public void subtract(){
-		result = n1 - n2;
+		result = new Number(n1.get() - n2.get());
 	}
 	public void multiply(){
-		result = n1 * n2;
+		result = new Number(n1.get() * n2.get());
 	}
 	public void divide(){
-		result = n1 / n2;
+		result = new Number(n1.get() / n2.get());
 	}
 	public void modulo(){
-		result = n1 % n2;
+		result = new Number(n1.get() % n2.get());
 	}
 	public void invert(Number n){
-		//result = 1/n;
+		result = new Number(1/n.get());
 	}
-	public double getNl(){ //should be 'double' or 'Number'
+	public Number getNl(){ 
 		return n1;
 	}
-	public double getN2(){ //should be 'double' or 'Number'
+	public Number getN2(){ 
 		return n2;
 	}
-	public double getResult(){ //should be 'double' or 'Number'
+	public Number getResult(){ 
 		return result;
 	}
 }

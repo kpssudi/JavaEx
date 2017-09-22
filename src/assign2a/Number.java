@@ -12,6 +12,7 @@ package assign2a;
 public class Number {
 
 	private double value;
+	private Number _num;
 	public Number(){
 		value = 0;
 	}
@@ -19,12 +20,17 @@ public class Number {
 		value = num;
 	}
 	public Number(Number aNumber){
-		
+		this._num = aNumber;
 	}
 	public double get(){
 		return value;
 	}
 	public void set(double v){
 		value = v;
+	}
+	public String toString(){
+		return "First number is: " + value + 
+				"\nSecond number is: " + value +
+				"\nResult is: " + value;
 	}
 }
