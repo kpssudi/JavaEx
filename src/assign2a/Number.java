@@ -10,7 +10,6 @@ package assign2a;
 (+) strinq toString() // provides external form of Number
  */
 public class Number {
-
 	private double value;
 	private Number _num;
 	public Number(){
@@ -29,8 +28,6 @@ public class Number {
 		value = v;
 	}
 	public String toString(){
-		return "First number is: " + value + 
-				"\nSecond number is: " + value +
-				"\nResult is: " + value;
+		return "" + get();
 	}
 }

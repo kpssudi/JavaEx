@@ -45,6 +45,7 @@ public class NumberSystem {
 
 	public void add(){
 		result = new Number(n1.get() + n2.get());
+		
 	}
 	public void subtract(){
 		result = new Number(n1.get() - n2.get());
@@ -69,5 +70,10 @@ public class NumberSystem {
 	}
 	public Number getResult(){ 
 		return result;
+	}
+	public String toString(){
+		return "First number is: " + n1 +
+				"\nSecond number is: " + n2 + 
+				"\nResult is: " + getResult();
 	}
 }
