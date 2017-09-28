@@ -3,7 +3,7 @@ package assign2a;
 public class NumberSystemTester {
 
 	public static void main(String[] args) {		
-		Number n1 = new Number(10);
+		Number n1 = new Number(-10);
 		Number n2 = new Number(5);
 		
 		NumberSystem numManipulator = new NumberSystem(n1, n2);

@@ -60,7 +60,7 @@ public class NumberSystem {
 		result = new Number(n1.get() % n2.get());
 	}
 	public void invert(Number n){
-		result = new Number(1/n.get());
+		result = new Number(-1 * n.get());
 	}
 	public Number getNl(){ 
 		return n1;
