@@ -16,13 +16,13 @@ ComplexNumber.java
 public class ComplexNumber {
 
 	private float realPart;
-	private char imaginaryPart;
+	private float imaginaryPart;
 	private ComplexNumber _num;
 	public ComplexNumber(){
 		realPart = 0;
-		imaginaryPart = 'i';
+		imaginaryPart = 0;
 	}
-	public ComplexNumber(float rp, char ip){
+	public ComplexNumber(float rp, float ip){
 		realPart = rp;
 		imaginaryPart = ip;
 	}
@@ -35,10 +35,10 @@ public class ComplexNumber {
 	public float getImaginary(){
 		return imaginaryPart;
 	}
-	public void set(float rp){
+	public void setReal(float rp){
 		realPart = rp;
 	}
-	public void set(char ip){
+	public void setImaginary(float ip){
 		imaginaryPart = ip;
 	}
 

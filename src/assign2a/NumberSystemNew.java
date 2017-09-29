@@ -17,28 +17,28 @@ package assign2a;
 (+) Number getN2()
 (+) Number getResult()
  */
-public class NumberSystem {
+public class NumberSystemNew {
 	private Number n1;
 	private Number n2;
 	private Number result;
 
 	
 	
-	public NumberSystem(){
+	public NumberSystemNew(){
 		//n1 = new Number(new Number(new Number()));
 		n1 = new Number(0);
 		n2 = new Number(0);
 		result = new Number();
 	}
-	public NumberSystem(Number num1){
+	public NumberSystemNew(Number num1){
 		n1 = num1;
 		n2 = new Number(0);
 	}
-	public NumberSystem(Number num1, Number num2){
+	public NumberSystemNew(Number num1, Number num2){
 		n1 = num1;
 		n2 = num2;
 	}
-	public NumberSystem(NumberSystem n){ //How to use copy constructor and result.set() and where result.set need to define
+	public NumberSystemNew(NumberSystemNew n){ //How to use copy constructor and result.set() and where result.set need to define
 		n1 = n.n1;
 		n2 = n.n2;
 	}
