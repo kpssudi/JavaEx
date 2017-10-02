@@ -7,6 +7,7 @@ package assign2a;
 (+) NumberSystem(Number n1)
 (+) NumberSystem(Number n1, Number n2)
 (+) NumberSystem(NumberSystem n)
+(+) mathOperation()
 (+) void add()
 (+) void subtract()
 (+) void multiply()
@@ -21,46 +22,62 @@ public class NumberSystem {
 	private Number n1;
 	private Number n2;
 	private Number result;
-
 	
-	
-	public NumberSystem(){
-		//n1 = new Number(new Number(new Number()));
-		n1 = new Number(0);
-		n2 = new Number(0);
+	public NumberSystem(){	
+		this(new Number(), new Number());
+	}
+	public NumberSystem(Number num1Object){
+		this(num1Object, new Number());		
+	}
+	public NumberSystem(Number num1Object, Number num2Object){		
+		n1 = num1Object;
+		n2 = num2Object;
 		result = new Number();
 	}
-	public NumberSystem(Number num1){
-		n1 = num1;
-		n2 = new Number(0);
-	}
-	public NumberSystem(Number num1, Number num2){
-		n1 = num1;
-		n2 = num2;
-	}
-	public NumberSystem(NumberSystem n){ //How to use copy constructor and result.set() and where result.set need to define
+	public NumberSystem(NumberSystem n){
 		n1 = n.n1;
 		n2 = n.n2;
+	}	
+	
+	public void mathOperation() {
+		add();
+		subtract();
+		multiply();
+		divide();
+		modulo();
+		invert(n1);
 	}
 	public void add(){
-		result = new Number(n1.get() + n2.get());
+		double sum = n1.get() + n2.get();
+		result.set(sum);
 		System.out.println("Addition:" + getN1().toString() + " + " + getN2().toString() + " = " + getResult().toString());
 		
 	}
 	public void subtract(){
-		result = new Number(n1.get() - n2.get());
+		result = new Number( n1.get()- n2.get());
+		System.out.println("Subtraction:" + getN1().toString() + " - " + getN2().toString() + " = " + getResult().toString());
 	}
 	public void multiply(){
 		result = new Number(n1.get() * n2.get());
+		System.out.println("Multiplication:" + getN1().toString() + " * " + getN2().toString() + " = " + getResult().toString());
 	}
 	public void divide(){
-		result = new Number(n1.get() / n2.get());
+		if (n2.get() != 0) { 
+			result = new Number(n1.get() / n2.get());
+			System.out.println("Division:" + getN1().toString() + " / " + getN2().toString() + " = " + getResult().toString());
+		}
+		else {
+			result = new Number();
+			System.out.println("Division:" + getN1().toString() + " / " + getN2().toString() + " = " + getResult().toString());
+		}
 	}
 	public void modulo(){
 		result = new Number(n1.get() % n2.get());
+		System.out.println("Modulus:" + getN1().toString() + " % " + getN2().toString() + " = " + getResult().toString());
 	}
 	public void invert(Number n){
 		result = new Number(-1 * n.get());
+		System.out.println("Inverse:"  + "-1 * " + getN1().toString() + " = " + getResult().toString() + "\n");
 	}
 	public Number getN1(){ 
 		return n1;
@@ -71,9 +88,4 @@ public class NumberSystem {
 	public Number getResult(){ 
 		return result;
 	}
-/*	public String toString(){
-		return "First number is: " + n1 +
-				"\nSecond number is: " + n2 + 
-				"\nResult is: " + getResult();
-	}*/
 }
