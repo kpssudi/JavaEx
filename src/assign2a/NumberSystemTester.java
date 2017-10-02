@@ -9,7 +9,7 @@ public class NumberSystemTester {
 		NumberSystem ns = new NumberSystem();
 		NumberSystem ns1 = new NumberSystem(n1);
 		NumberSystem ns2 = new NumberSystem(n1, n2);
-		NumberSystem copyns = new NumberSystem(ns2);
+		NumberSystem cpns = new NumberSystem(ns2);
 		
 		System.out.println("Using default constructor:\n");
 		ns.mathOperation();
@@ -18,6 +18,6 @@ public class NumberSystemTester {
 		System.out.println("Constructor with two parameter:\n");
 		ns2.mathOperation();
 		System.out.println("Copy Constructor:\n");
-		copyns.mathOperation();
+		cpns.mathOperation();
 	}
 }

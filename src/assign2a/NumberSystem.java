@@ -37,6 +37,7 @@ public class NumberSystem {
 	public NumberSystem(NumberSystem n){
 		n1 = n.n1;
 		n2 = n.n2;
+		result = n.result;
 	}	
 	
 	public void mathOperation() {
@@ -50,6 +51,7 @@ public class NumberSystem {
 	public void add(){
 		double sum = n1.get() + n2.get();
 		result.set(sum);
+		//result = new Number( n1.get() + n2.get());
 		System.out.println("Addition:" + getN1().toString() + " + " + getN2().toString() + " = " + getResult().toString());
 		
 	}
@@ -67,13 +69,17 @@ public class NumberSystem {
 			System.out.println("Division:" + getN1().toString() + " / " + getN2().toString() + " = " + getResult().toString());
 		}
 		else {
-			result = new Number();
 			System.out.println("Division:" + getN1().toString() + " / " + getN2().toString() + " = " + getResult().toString());
 		}
 	}
 	public void modulo(){
-		result = new Number(n1.get() % n2.get());
-		System.out.println("Modulus:" + getN1().toString() + " % " + getN2().toString() + " = " + getResult().toString());
+		if (n2.get() != 0) { 
+			result = new Number(n1.get() % n2.get());
+			System.out.println("Modulus:" + getN1().toString() + " % " + getN2().toString() + " = " + getResult().toString());
+		}
+		else {
+			System.out.println("Modulus:" + getN1().toString() + " % " + getN2().toString() + " = " + getResult().toString());
+		}
 	}
 	public void invert(Number n){
 		result = new Number(-1 * n.get());

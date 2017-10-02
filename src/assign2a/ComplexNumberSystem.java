@@ -20,29 +20,55 @@ public class ComplexNumberSystem {
 	private ComplexNumber result;
 		
 	public ComplexNumberSystem(){
-		
-		n1 = new ComplexNumber();
-		n2 = new ComplexNumber();
+		this(new ComplexNumber(), new ComplexNumber());
+	}
+	public ComplexNumberSystem(ComplexNumber rpObj){
+		this(rpObj, new ComplexNumber());
+	}
+	public ComplexNumberSystem(ComplexNumber rpObj, ComplexNumber ipObj){
+		n1 = rpObj;
+		n2 = ipObj;
 		result = new ComplexNumber();	
-	}
-	public ComplexNumberSystem(ComplexNumber rp){
-		n1 = rp;
-		n2 = new ComplexNumber();
-	}
-	public ComplexNumberSystem(ComplexNumber rp, ComplexNumber ip){
-		n1 = rp;
-		n2 = ip;
 	}
 	public ComplexNumberSystem(ComplexNumberSystem cns){
 		n1 = cns.n1;
 		n2 = cns.n2;
+		result = cns.result;
 	}
 
+	public void complexMathOperation() {
+		add();
+		subtract();
+		multiply();
+		divide();
+	}
 	public void add(){
 		result.setReal(n1.getReal() + n2.getReal());		
 		result.setImaginary(n1.getImaginary() + n2.getImaginary());
 		System.out.println("Addition:" + getN1().toString() + " + " + getN2().toString() + " = " + getResult().toString());
 	}
+	public void subtract(){
+		result.setReal(n1.getReal() - n2.getReal());		
+		result.setImaginary(n1.getImaginary() - n2.getImaginary());
+		System.out.println("Subtraction:" + getN1().toString() + " - " + getN2().toString() + " = " + getResult().toString());
+	}
+	public void multiply(){
+		result.setReal(n1.getReal() * n2.getReal());		
+		result.setImaginary(n1.getImaginary() * n2.getImaginary());
+		System.out.println("Multiplication:" + getN1().toString() + " * " + getN2().toString() + " = " + getResult().toString());
+	}
+	public void divide(){
+		if (n2.getReal() != 0) { 
+			result.setReal(n1.getReal() / n2.getReal());		
+			result.setImaginary(n1.getImaginary() / n2.getImaginary());
+			System.out.println("Division:" + getN1().toString() + " / " + getN2().toString() + " = " + getResult().toString());
+		}
+		else {
+			System.out.println("Division:" + getN1().toString() + " / " + getN2().toString() + " = " + getResult().toString());
+		}
+		
+	}
+	
 /*	public void subtract(){
 		result = new ComplexNumber(n1.get() - n2.get());
 	}

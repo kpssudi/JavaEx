@@ -15,5 +15,5 @@ package assign2a3;
 	AppDriver --- 1 : 1(uses) --- MyStringClass
  */
 public class MyStringClass {
-	//private String byte[];
+	//private char byte[];
 }

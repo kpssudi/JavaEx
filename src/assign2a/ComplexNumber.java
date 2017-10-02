@@ -43,6 +43,6 @@ public class ComplexNumber {
 
 	public String toString(){
 		//return "" + getReal() + getImaginary();
-		return new String("(" + realPart + "+" + imaginaryPart + ")" + "i");
+		return new String("(" + realPart + "+" + imaginaryPart + "i" + ")");
 	}
 }
