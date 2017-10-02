@@ -16,18 +16,19 @@ ComplexNumber.java
 public class ComplexNumber {
 
 	private float realPart;
-	private char imaginaryPart;
-	private ComplexNumber _num;
+	private float imaginaryPart;
+	
 	public ComplexNumber(){
 		realPart = 0;
-		imaginaryPart = 'i';
+		imaginaryPart = 0;
 	}
-	public ComplexNumber(float rp, char ip){
+	public ComplexNumber(float rp, float ip){
 		realPart = rp;
 		imaginaryPart = ip;
 	}
 	public ComplexNumber(ComplexNumber aNumber){
-		this._num = aNumber;
+		realPart = aNumber.realPart;
+		imaginaryPart = aNumber.imaginaryPart;
 	}
 	public float getReal(){
 		return realPart;
@@ -35,16 +36,15 @@ public class ComplexNumber {
 	public float getImaginary(){
 		return imaginaryPart;
 	}
-	public void set(float rp){
+	public void setReal(float rp){
 		realPart = rp;
 	}
-	public void set(char ip){
+	public void setImaginary(float ip){
 		imaginaryPart = ip;
 	}
 
 	public String toString(){
-		return "Real number is: " + realPart + 
-				"\nImaginary number is: " + imaginaryPart;
-				
+		//return "" + getReal() + getImaginary();
+		return new String("(" + realPart + "+" + imaginaryPart + ")" + "i");
 	}
 }
