@@ -11,15 +11,15 @@ public class ComplexNumberSystemTester {
 		ComplexNumberSystem cns1 = new ComplexNumberSystem(n1);
 		ComplexNumberSystem cns2 = new ComplexNumberSystem(n1, n2);
 		ComplexNumberSystem cpcns = new ComplexNumberSystem(cns2);
-		
+
+		System.out.println("\nCopy Constructor:\n");
+		cpcns.complexMathOperation();		
 		System.out.println("Using default constructor:\n");
 		cns.complexMathOperation();
 		System.out.println("\nConstructor with one parameter:\n");
 		cns1.complexMathOperation();
 		System.out.println("\nConstructor with two parameter:\n");
 		cns2.complexMathOperation();
-		System.out.println("\nCopy Constructor:\n");
-		cpcns.complexMathOperation();
 		
 	}
 }
