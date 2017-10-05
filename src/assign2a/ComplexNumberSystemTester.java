@@ -1,5 +1,14 @@
 package assign2a;
-
+/**
+ * Pseudo Code of Driver class ComplexNumberSystemTester
+ * Create first instance of ComplexNumber with two parameters
+ * Create second instance of ComplexNumber with two parameters
+ * Create instance of ComplexNumberSystem's constructor(s) (default, one parameter two parameter AND copy)
+ * Print heading as 'Copy Constructor' and call add() method of copy constructor
+ * Print heading as 'Using default constructor' and call subtract() method of default constructor
+ * Print heading as 'Constructor with one parameter' and call multiply() method of one parameterized constructor
+ * Print heading as 'Constructor with two parameter' and call divide() method of two parameterized constructor
+ */
 public class ComplexNumberSystemTester {
 
 	public static void main(String[] args) {
@@ -13,13 +22,13 @@ public class ComplexNumberSystemTester {
 		ComplexNumberSystem cpcns = new ComplexNumberSystem(cns2);
 
 		System.out.println("\nCopy Constructor:\n");
-		cpcns.complexMathOperation();		
-		System.out.println("Using default constructor:\n");
-		cns.complexMathOperation();
+		cpcns.add();		
+		System.out.println("\nUsing default constructor:\n");
+		cns.subtract();
 		System.out.println("\nConstructor with one parameter:\n");
-		cns1.complexMathOperation();
+		cns1.multiply();
 		System.out.println("\nConstructor with two parameter:\n");
-		cns2.complexMathOperation();
+		cns2.divide();
 		
 	}
 }

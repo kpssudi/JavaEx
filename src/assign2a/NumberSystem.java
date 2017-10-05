@@ -40,50 +40,50 @@ public class NumberSystem {
 		result = n.result;
 	}	
 	
-	public void mathOperation() {
+/*	public void mathOperation() {
 		add();
 		subtract();
 		multiply();
 		divide();
 		modulo();
 		invert(n1);
-	}
+	}*/
 	public void add(){
 		double sum = n1.get() + n2.get();
 		result.set(sum);
 		//result = new Number( n1.get() + n2.get());
-		System.out.println("Addition:" + getN1().toString() + " + " + getN2().toString() + " = " + getResult().toString());
+		System.out.println("\t\tAddition:" + getN1().toString() + " + " + getN2().toString() + " = " + getResult().toString());
 		
 	}
 	public void subtract(){
 		result = new Number( n1.get()- n2.get());
-		System.out.println("Subtraction:" + getN1().toString() + " - " + getN2().toString() + " = " + getResult().toString());
+		System.out.println("\t\tSubtraction:" + getN1().toString() + " - " + getN2().toString() + " = " + getResult().toString());
 	}
 	public void multiply(){
 		result = new Number(n1.get() * n2.get());
-		System.out.println("Multiplication:" + getN1().toString() + " * " + getN2().toString() + " = " + getResult().toString());
+		System.out.println("\t\tMultiplication:" + getN1().toString() + " * " + getN2().toString() + " = " + getResult().toString());
 	}
 	public void divide(){
 		if (n2.get() != 0) { 
 			result = new Number(n1.get() / n2.get());
-			System.out.println("Division:" + getN1().toString() + " / " + getN2().toString() + " = " + getResult().toString());
+			System.out.println("\t\tDivision:" + getN1().toString() + " / " + getN2().toString() + " = " + getResult().toString());
 		}
 		else {
-			System.out.println("Division:" + getN1().toString() + " / " + getN2().toString() + " = " + getResult().toString());
+			System.out.println("\t\tDivision:" + getN1().toString() + " / " + getN2().toString() + " = " + getResult().toString());
 		}
 	}
 	public void modulo(){
 		if (n2.get() != 0) { 
 			result = new Number(n1.get() % n2.get());
-			System.out.println("Modulus:" + getN1().toString() + " % " + getN2().toString() + " = " + getResult().toString());
+			System.out.println("\t\tModulus:" + getN1().toString() + " % " + getN2().toString() + " = " + getResult().toString());
 		}
 		else {
-			System.out.println("Modulus:" + getN1().toString() + " % " + getN2().toString() + " = " + getResult().toString());
+			System.out.println("\t\tModulus:" + getN1().toString() + " % " + getN2().toString() + " = " + getResult().toString());
 		}
 	}
 	public void invert(Number n){
 		result = new Number(-1 * n.get());
-		System.out.println("Inverse:"  + "-1 * " + getN1().toString() + " = " + getResult().toString() + "\n");
+		System.out.println("\t\tInverse:"  + "-1 * " + getN1().toString() + " = " + getResult().toString() + "\n");
 	}
 	public Number getN1(){ 
 		return n1;

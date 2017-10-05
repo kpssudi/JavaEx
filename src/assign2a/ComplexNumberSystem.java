@@ -36,12 +36,12 @@ public class ComplexNumberSystem {
 		result = cns.result;
 	}
 
-	public void complexMathOperation() {
+/*	public void complexMathOperation() {
 		add();
 		subtract();
 		multiply();
 		divide();
-	}
+	}*/
 	public void add(){
 		result.setReal(n1.getReal() + n2.getReal());		
 		result.setImaginary(n1.getImaginary() + n2.getImaginary());
@@ -55,21 +55,26 @@ public class ComplexNumberSystem {
 	public void multiply(){
 		//result.setReal(n1.getReal() * n2.getReal());		
 		//result.setImaginary(n1.getImaginary() * n2.getImaginary());
-		result.setReal((n1.getReal() * n2.getReal()) - (n1.getImaginary() * n2.getImaginary()));
-		result.setImaginary((n1.getReal() * n2.getImaginary()) - (n1.getImaginary() * n2.getReal()));
-		System.out.println("Multiplication:" + getN1().toString() + " * " + getN2().toString() + " = " + getResult().toString());
+		result.setReal((n1.getReal() * n2.getReal()) - (n1.getImaginary() * 
+				n2.getImaginary()));
+		result.setImaginary((n1.getReal() * n2.getImaginary()) - (n1.getImaginary() * 
+				n2.getReal()));
+		System.out.println("Multiplication:" + getN1().toString() + " * " + 
+				getN2().toString() + " = " + getResult().toString());
 	}
 	public void divide(){
 		if (n2.getReal() != 0) { 
-			//result.setReal(n1.getReal() / n2.getReal());		
-			//result.setImaginary(n1.getImaginary() / n2.getImaginary());
-			result.setReal(((n1.getReal() + n1.getImaginary()) * (n2.getReal() - n2.getImaginary())) / ((n2.getReal()*n2.getReal()) + (n2.getImaginary()*n2.getImaginary())));		
-			//result.setImaginary(n1.getImaginary() / n2.getImaginary());
+			result.setReal((n1.getReal() + n1.getImaginary()) * (n2.getReal() -
+					n2.getImaginary()) / (n2.getReal() * n2.getReal()));
+			result.setImaginary((n1.getReal() + n1.getImaginary()) * (n2.getReal() -
+					n2.getImaginary()) / (n2.getImaginary() * n2.getImaginary()));
 
-			System.out.println("Division:" + getN1().toString() + " / " + getN2().toString() + " = " + getResult());
+			System.out.println("Division:" + getN1().toString() + " / " + 
+					getN2().toString() + " = " + getResult());
 		}
 		else {
-			System.out.println("Division:" + getN1().toString() + " / " + getN2().toString() + " = " + getResult());
+			System.out.println("Division:" + getN1().toString() + " / " + 
+					getN2().toString() + " = " + getResult());
 		}
 		
 	}
