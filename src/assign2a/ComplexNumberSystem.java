@@ -45,21 +45,19 @@ public class ComplexNumberSystem {
 	public void add(){
 		result.setReal(n1.getReal() + n2.getReal());		
 		result.setImaginary(n1.getImaginary() + n2.getImaginary());
-		System.out.println("Addition:" + getN1().toString() + " + " + getN2().toString() + " = " + getResult().toString());
+		System.out.println("\tAddition:" + getN1().toString() + " + " + getN2().toString() + " = " + getResult().toString());
 	}
 	public void subtract(){
 		result.setReal(n1.getReal() - n2.getReal());		
 		result.setImaginary(n1.getImaginary() - n2.getImaginary());
-		System.out.println("Subtraction:" + getN1().toString() + " - " + getN2().toString() + " = " + getResult().toString());
+		System.out.println("\tSubtraction:" + getN1().toString() + " - " + getN2().toString() + " = " + getResult().toString());
 	}
 	public void multiply(){
-		//result.setReal(n1.getReal() * n2.getReal());		
-		//result.setImaginary(n1.getImaginary() * n2.getImaginary());
 		result.setReal((n1.getReal() * n2.getReal()) - (n1.getImaginary() * 
 				n2.getImaginary()));
 		result.setImaginary((n1.getReal() * n2.getImaginary()) - (n1.getImaginary() * 
 				n2.getReal()));
-		System.out.println("Multiplication:" + getN1().toString() + " * " + 
+		System.out.println("\tMultiplication:" + getN1().toString() + " * " + 
 				getN2().toString() + " = " + getResult().toString());
 	}
 	public void divide(){
@@ -69,11 +67,11 @@ public class ComplexNumberSystem {
 			result.setImaginary((n1.getReal() + n1.getImaginary()) * (n2.getReal() -
 					n2.getImaginary()) / (n2.getImaginary() * n2.getImaginary()));
 
-			System.out.println("Division:" + getN1().toString() + " / " + 
+			System.out.println("\tDivision:" + getN1().toString() + " / " + 
 					getN2().toString() + " = " + getResult());
 		}
 		else {
-			System.out.println("Division:" + getN1().toString() + " / " + 
+			System.out.println("\tDivision:" + getN1().toString() + " / " + 
 					getN2().toString() + " = " + getResult());
 		}
 		
