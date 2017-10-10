@@ -14,26 +14,36 @@ package assign2a3;
 (+) string toStrinq()
 	AppDriver --- 1 : 1(uses) --- MyStringClass
  */
+/*
+ * public String(byte[] bytes, String newstring)
+ * public String(byte[] bytes, int start, int count)
+ * public String(byte[] bytes, int start, int count, String newstring)
+ * 
+ * public String(char[] chars)
+ * public String(char[] chars, int start, int count)
+ * 
+ * public String(StringBuffer buffer)
+ */
 public class MyStringVersion{
-    private char[] charArray;
+    private byte[] bytesArray;
     
     public MyStringVersion(){
     	this("");
     }
     public MyStringVersion(String inputJavaString){
-    	charArray = new char[inputJavaString.length()];
+    	bytesArray = new byte[inputJavaString.length()];
     	
  /*   	for(int i=0; i<inputJavaString.length(); i++){
-    		charArray[i] = inputJavaString.charAt(i);
+    		bytesArray[i] = inputJavaString.charAt(i);
     	}*/
-    	charArray = inputJavaString.toCharArray();
+    	bytesArray = inputJavaString.getBytes();
     }
     public MyStringVersion(MyStringVersion S){
-    	charArray = S.charArray;
+    	bytesArray = S.bytesArray;
     }
 
     public MyStringVersion left(int size){
-    	return new MyStringVersion(new String(charArray, 0, size));
+    	return new MyStringVersion(new String(bytesArray, 0, size));
     }
     
     public MyStringVersion left(){
@@ -41,7 +51,7 @@ public class MyStringVersion{
     }
     
     public MyStringVersion right(int size){
-    	return new MyStringVersion(new String(charArray, charArray.length-size, size));   
+    	return new MyStringVersion(new String(bytesArray, bytesArray.length-size, size));   
     }
     
     public MyStringVersion right(){
@@ -49,46 +59,46 @@ public class MyStringVersion{
     }
     
     public MyStringVersion mid(int startPos, int size){
-    	return new MyStringVersion(new String(charArray, startPos-1, size));   
+    	return new MyStringVersion(new String(bytesArray, startPos-1, size));   
     }
     
     public MyStringVersion mid(){
-    	return this.mid(1, charArray.length);    	    	
+    	return this.mid(1, bytesArray.length);    	    	
     }
     
     public MyStringVersion subString(int startPos, int endPos){
-    	return new MyStringVersion(new String(charArray, startPos-1, endPos));   
+    	return new MyStringVersion(new String(bytesArray, startPos-1, endPos));   
     }
     public MyStringVersion charAtPos(int pos){
-    	return new MyStringVersion(new String(charArray, pos-1, 1));   
+    	return new MyStringVersion(new String(bytesArray, pos-1, 1));   
     }
         
  /*   public MyStringVersion instr(String searchstring, int startPos){
-    	return new MyStringVersion(new String(charArray, searchstring, startPos-1));   
+    	return new MyStringVersion(new String(bytesArray, searchstring, startPos-1));   
     }*/
     
     public MyStringVersion invert(){
-    	char[] tempCharArray;
-    	int strLen = charArray.length;
+    	byte[] tempbytesArray;
+    	int strLen = bytesArray.length;
     	int counter = 0;
-    	tempCharArray = new char[charArray.length];
-    	for(int i=strLen; i<=0; strLen--){
-    		tempCharArray[counter] = charArray[i];
+    	tempbytesArray = new byte[bytesArray.length];
+    	for(int i=strLen-1; i>=0; i--){
+    		tempbytesArray[counter] = bytesArray[i];
     		counter++;
     	}
-    	return new MyStringVersion(new String(tempCharArray));
+    	return new MyStringVersion(new String(tempbytesArray));
     }
     public String toString(){
-    	return new String(this.charArray, 0, this.charArray.length); 
+    	return new String(this.bytesArray, 0, this.bytesArray.length); 
     	//return "test";   	
     }
     public MyStringVersion upperCase(){
     	int ascii = 0;
-    	for(int i=0; i<charArray.length; i++){
-    		//charArray[i] =Character.toUpperCase(charArray[i]);
-    		ascii = charArray[i];
+    	for(int i=0; i<bytesArray.length; i++){
+    		//bytesArray[i] =Character.toUpperCase(bytesArray[i]);
+    		ascii = bytesArray[i];
     		if ((ascii >= 97) && (ascii <=122)) {
-    			charArray[i] -= 32;
+    			bytesArray[i] -= 32;
     		}
     	}
     	return this;
@@ -96,11 +106,11 @@ public class MyStringVersion{
  
     public MyStringVersion lowerCase(){
     	int ascii = 0;
-    	for(int i=0; i<charArray.length; i++){
-    		//charArray[i] =Character.toLowerCase(charArray[i]);
-       		ascii = charArray[i];
+    	for(int i=0; i<bytesArray.length; i++){
+    		//bytesArray[i] =Character.toLowerCase(bytesArray[i]);
+       		ascii = bytesArray[i];
     		if ((ascii >= 65) && (ascii <=90)) {
-    			charArray[i] += 32;
+    			bytesArray[i] += 32;
     		}
     	}
     	return this;
@@ -108,7 +118,7 @@ public class MyStringVersion{
     
         
     public int length(){
-    	return this.charArray.length;
+    	return this.bytesArray.length;
     }
       
         
