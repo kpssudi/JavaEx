@@ -73,10 +73,30 @@ public class MyStringVersion{
     	return new MyStringVersion(new String(bytesArray, pos-1, 1));   
     }
         
-/*    public MyStringVersion instr(String searchstring, int startPos, int size){
-    	
-    	//return new MyStringVersion(new String(bytesArray, searchstring, startPos-1));   
-    }*/
+    public MyStringVersion instr(String searchstring, int startPos){
+    	byte[] searchText = searchstring.getBytes();
+    	boolean status = false;
+    	for(int st=0; st<=searchText.length; st++){
+    	   	for(int i=startPos-1; i<=bytesArray.length; i++){    		
+               	if(searchText[st] == bytesArray[i]) {
+               		status = true;
+               		st++;
+               		continue;
+               	}
+               	else {status = false;}    			    		
+    	   	}
+    	   	if(status = false) {break;}
+    	}
+    	if(status){
+        	return new MyStringVersion(new String(searchstring));       		
+    	}
+    	else {
+        	return new MyStringVersion(new String("Search string not found!"));
+    	}
+    }
+    public String toString(){
+    	return new String(this.bytesArray, 0, this.bytesArray.length);    	
+    }
     
     public MyStringVersion invert(){
     	byte[] tempbytesArray;
@@ -88,9 +108,6 @@ public class MyStringVersion{
     		counter++;
     	}
     	return new MyStringVersion(new String(tempbytesArray));
-    }
-    public String toString(){
-    	return new String(this.bytesArray, 0, this.bytesArray.length);    	
     }
     public MyStringVersion upperCase(){
     	int ascii = 0;

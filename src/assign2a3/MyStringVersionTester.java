@@ -20,6 +20,7 @@ public class MyStringVersionTester {
 		System.out.printf("Changing text to lower case: %s\n\n", myText.lowerCase());
 
 		System.out.println("Using copy constructor:\n");
+//		System.out.printf("Search text: %s\n", myText1.instr("put", 4));
 		System.out.printf("Inverted text: %s\n", myText1.invert());
 		
 	}
