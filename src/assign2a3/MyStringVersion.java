@@ -73,8 +73,9 @@ public class MyStringVersion{
     	return new MyStringVersion(new String(bytesArray, pos-1, 1));   
     }
         
- /*   public MyStringVersion instr(String searchstring, int startPos){
-    	return new MyStringVersion(new String(bytesArray, searchstring, startPos-1));   
+/*    public MyStringVersion instr(String searchstring, int startPos, int size){
+    	
+    	//return new MyStringVersion(new String(bytesArray, searchstring, startPos-1));   
     }*/
     
     public MyStringVersion invert(){
@@ -89,31 +90,28 @@ public class MyStringVersion{
     	return new MyStringVersion(new String(tempbytesArray));
     }
     public String toString(){
-    	return new String(this.bytesArray, 0, this.bytesArray.length); 
-    	//return "test";   	
+    	return new String(this.bytesArray, 0, this.bytesArray.length);    	
     }
     public MyStringVersion upperCase(){
     	int ascii = 0;
     	for(int i=0; i<bytesArray.length; i++){
-    		//bytesArray[i] =Character.toUpperCase(bytesArray[i]);
     		ascii = bytesArray[i];
     		if ((ascii >= 97) && (ascii <=122)) {
     			bytesArray[i] -= 32;
     		}
     	}
-    	return this;
+    	return new MyStringVersion(new String(bytesArray));
     }
  
     public MyStringVersion lowerCase(){
     	int ascii = 0;
     	for(int i=0; i<bytesArray.length; i++){
-    		//bytesArray[i] =Character.toLowerCase(bytesArray[i]);
        		ascii = bytesArray[i];
     		if ((ascii >= 65) && (ascii <=90)) {
     			bytesArray[i] += 32;
     		}
     	}
-    	return this;
+    	return new MyStringVersion(new String(bytesArray));
     }
     
         
