@@ -28,7 +28,7 @@ public class MyStringVersion{
     private byte[] bytesArray;
     
     public MyStringVersion(){
-    	this("");
+    	this("SuperComputer");
     }
     public MyStringVersion(String inputJavaString){
     	bytesArray = new byte[inputJavaString.length()];
@@ -76,17 +76,17 @@ public class MyStringVersion{
     public MyStringVersion instr(String searchstring, int startPos){
     	byte[] searchText = searchstring.getBytes();
     	boolean status = false;
-    	for(int st=0; st<=searchText.length; st++){
-    	   	for(int i=startPos-1; i<=bytesArray.length; i++){    		
-               	if(searchText[st] == bytesArray[i]) {
-               		status = true;
-               		st++;
-               		continue;
-               	}
-               	else {status = false;}    			    		
+    	int st=0;
+    	   	for(int i=startPos-1; i<bytesArray.length; i++){
+    	   		if(st<searchText.length) {
+                   	if(searchText[st] == bytesArray[i]) {
+                   		status = true;
+                   		st++;
+                   	}
+                   	else {status = false;}    			    		    	   			
+    	   		}
+    	   		else{break;}
     	   	}
-    	   	if(status = false) {break;}
-    	}
     	if(status){
         	return new MyStringVersion(new String(searchstring));       		
     	}
