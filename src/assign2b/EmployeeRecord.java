@@ -47,6 +47,7 @@ Employees
 public class EmployeeRecord {
 	public String LastName, FirstName;
 	public float hours, payrate, gross, fedtax, statetax, ssitax, net, deferred;
+	public final float FED_TAXRATE = 0.15f, STATE_TAXRATE = 0.07f, SSI_TAXRATE = 0.0775f; 
 	EmployeeRecord(){
 		
 	}

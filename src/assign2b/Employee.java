@@ -36,16 +36,20 @@ public class Employee {
 		e.gross = e.hours * e.payrate;
 		return e.gross;
 	}
-	public float calcTaxes (){
-		e.fedtax = e.gross *  
+	public float calcTaxes (){		
+		e.fedtax = e.gross * e.FED_TAXRATE;
+		e.statetax = e.gross * e.STATE_TAXRATE;
+		e.ssitax = e.gross * e.SSI_TAXRATE;
+		return e.fedtax + e.statetax + e.ssitax;
 	}
 	public float calcNet () {
 		
+		return e.gross - (e.fedtax + e.statetax + e.ssitax);
 	}
 	public EmployeeRecord get() {
-		
+		return e;
 	}
-	public String toString(){
+/*	public String toString(){
 		
-	}
+	}*/
 }
