@@ -3,7 +3,13 @@ package assign2b;
 public class EmployeeTester {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		private Employee[] emps;
+		
+		public Employees(short size) {
+			emps = new Employee[size];
+		}
+		
 
 	}
 

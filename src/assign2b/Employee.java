@@ -14,6 +14,7 @@ package assign2b;
  */
 public class Employee {
 	private EmployeeRecord e;
+	
 	public Employee(){
 		this("","",0,0,0);
 	}
