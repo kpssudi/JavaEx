@@ -1,18 +1,21 @@
 package assign2a3;
 /**
 (-) byte[] private String;
-(+) MyStringClass()
-(+) MyStringClass(string s)
-(+) MyStringClass(myStringClass msc)
-(+) MyStringClass left (short size)
-(+) MyStringClass right(short size )
-(+) MyStringClass mid (short startlndex, short size)
-(+) short instr(short startindex, MyStringClass searchString)
-(+) MyStringClass upper()
-(+) MyStringClass lower ()
-(+) MyStringClass invert()
+(+) MyStringVersion()
+(+) MyStringVersion(string s)
+(+) MyStringVersion(MyStringVersion msv)
+(+) MyStringVersion left(int size)
+(+) MyStringVersion right(int size )
+(+) MyStringVersion mid(int startPos, int size)
+(+) MyStringVersion substring(int startPos, int endPos)
+(+) MyStringVersion charAtPos(int pos)
+(+) short instr(MyStringVersion searchString, short startindex)
+(+) MyStringVersion upperCase()
+(+) MyStringVersion lowerCase()
+(+) MyStringVersion invert()
+(+) short length()
 (+) string toStrinq()
-	AppDriver --- 1 : 1(uses) --- MyStringClass
+	AppDriver --- 1 : 1(uses) --- MyStringVersion
  */
 /*
  * public String(byte[] bytes, String newstring)
@@ -38,8 +41,8 @@ public class MyStringVersion{
     	}*/
     	bytesArray = inputJavaString.getBytes();
     }
-    public MyStringVersion(MyStringVersion S){
-    	bytesArray = S.bytesArray;
+    public MyStringVersion(MyStringVersion msv){
+    	bytesArray = msv.bytesArray;
     }
 
     public MyStringVersion left(int size){
@@ -73,25 +76,27 @@ public class MyStringVersion{
     	return new MyStringVersion(new String(bytesArray, pos-1, 1));   
     }
         
-    public MyStringVersion instr(String searchstring, int startPos){
+    public int instr(String searchstring, int startPos){
     	byte[] searchText = searchstring.getBytes();
     	boolean status = false;
-    	int st=0;
-    	   	for(int i=startPos-1; i<bytesArray.length; i++){
-    	   		if(st<searchText.length) {
+    	int st=0, foundPos = 0;
+    	   	for(int i = startPos - 1; i < bytesArray.length; i++){
+    	   		if(st < searchText.length) {
                    	if(searchText[st] == bytesArray[i]) {
                    		status = true;
                    		st++;
+                   		foundPos = i;
                    	}
-                   	else {status = false;}    			    		    	   			
+                   	else {status = false; st = 0;}  // st=0 sets the search string's initial position to search upto the end of string  			    		    	   			
     	   		}
     	   		else{break;}
     	   	}
+    	   	
     	if(status){
-        	return new MyStringVersion(new String(searchstring));       		
+        	return (foundPos-st) + 2;       		
     	}
     	else {
-        	return new MyStringVersion(new String("Search string not found!"));
+        	return -1;
     	}
     }
     public String toString(){
@@ -111,26 +116,31 @@ public class MyStringVersion{
     }
     public MyStringVersion upperCase(){
     	int ascii = 0;
+    	byte[] tempArray;
+    	tempArray = new byte[bytesArray.length];
     	for(int i=0; i<bytesArray.length; i++){
     		ascii = bytesArray[i];
+    		tempArray[i] = bytesArray[i];
     		if ((ascii >= 97) && (ascii <=122)) {
-    			bytesArray[i] -= 32;
+    			tempArray[i] -= 32;
     		}
     	}
-    	return new MyStringVersion(new String(bytesArray));
+    	return new MyStringVersion(new String(tempArray));
     }
  
     public MyStringVersion lowerCase(){
     	int ascii = 0;
+    	byte[] tempArray;
+    	tempArray = new byte[bytesArray.length];
     	for(int i=0; i<bytesArray.length; i++){
        		ascii = bytesArray[i];
+    		tempArray[i] = bytesArray[i];
     		if ((ascii >= 65) && (ascii <=90)) {
-    			bytesArray[i] += 32;
+    			tempArray[i] += 32;
     		}
     	}
-    	return new MyStringVersion(new String(bytesArray));
+    	return new MyStringVersion(new String(tempArray));
     }
-    
         
     public int length(){
     	return this.bytesArray.length;

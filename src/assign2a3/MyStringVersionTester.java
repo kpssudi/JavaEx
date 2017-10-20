@@ -1,9 +1,25 @@
 package assign2a3;
-
+/**
+ * Pseudo Code of Driver class MyStringVersionTester
+ * Create instance of MyStringVersion's constructor(s) (default, one parameter AND copy)
+ * Print heading as 'Using default constructor' and call left() method of default constructor without argument
+ *
+ * Print heading as 'Using parameterized constructor' and call left() method of one parameterized constructor with argument
+ * Print heading as 'Using parameterized constructor' and call right() method of one parameterized constructor without argument
+ * Print heading as 'Using parameterized constructor' and call right() method of one parameterized constructor with argument
+ * Print heading as 'Using parameterized constructor' and call mid() method of one parameterized constructor without argument
+ * Print heading as 'Using parameterized constructor' and call mid() method of one parameterized constructor with argument
+ * Print heading as 'Using parameterized constructor' and call substring() method of one parameterized constructor
+ * Print heading as 'Using parameterized constructor' and call charAtPos() method of one parameterized constructor
+ * Print heading as 'Using parameterized constructor' and call upperCase() method of one parameterized constructor
+ * Print heading as 'Using parameterized constructor' and call lowerCase() method of one parameterized constructor
+ *
+ * Print heading as 'Copy Constructor' and call instr() and invert() methods of copy constructor
+ */
 public class MyStringVersionTester {
 
 	public static void main(String[] args) {
-		String myString = new String("Computer");
+		String myString = new String("publicComputed");
 		MyStringVersion myText2 = new MyStringVersion();
 		MyStringVersion myText = new MyStringVersion(myString);
 		MyStringVersion myText1 = new MyStringVersion(myText);
@@ -23,7 +39,7 @@ public class MyStringVersionTester {
 		System.out.printf("\tChanging text to lower case: %s\n\n", myText.lowerCase());
 
 		System.out.println("Using copy constructor:\n");
-		System.out.printf("\tSearch text: %s\n", myText1.instr("put", 4));
+		System.out.printf("\tSearch text: %s\n", myText1.instr("ter", 1));
 		System.out.printf("\tInverted text: %s\n", myText1.invert());
 		
 	}
