@@ -1,4 +1,6 @@
 package assign2b;
+
+
 /**
  *
 (-) Employees emps //data
@@ -18,15 +20,25 @@ package assign2b;
 (+) String toString()
  */
 public class Employees {
-	private Employees emps;
+	private Employee[] emps;
 	
-	public Employees(String lastname, String firstname, float h, float pr, float defr) {
-		
+	public Employees() {
+		emps = new Employee[100];
 	}
-	public Employees(EmployeeRecord e) {
+	public Employees(short size) {
+		emps = new Employee[size];
+	}
+	public Employees(Employees es) {
+		//emps = es;
 		
 	}
 	public void add(String lastname, String firstname, float h, float pr, float defr) {
-		emps[0].
+		Employee tempEmp = new Employee(lastname, firstname, h, pr, defr);
+		emps[0] = tempEmp;
 	}
+	
+/*	public void add (String ln, float h) {
+		employee newone = new employee(ln, h);
+		emps.[getNextFreeIndex()] = newONe;
+	}*/
 }

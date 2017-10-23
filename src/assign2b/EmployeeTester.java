@@ -3,13 +3,9 @@ package assign2b;
 public class EmployeeTester {
 
 	public static void main(String[] args) {
+		Employees newEmps = new Employees((short)50);
 		
-		private Employee[] emps;
-		
-		public Employees(short size) {
-			emps = new Employee[size];
-		}
-		
+		newEmps.add("Doe", "John", 40f, 15.50f, 20f);
 
 	}
 
