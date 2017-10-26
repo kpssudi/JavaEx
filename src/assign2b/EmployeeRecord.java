@@ -46,24 +46,21 @@ Employees
 
 public class EmployeeRecord {
 	public String LastName, FirstName;
-	public float hours, payrate, gross, fedtax, statetax, ssitax, net, deferred;
+	public float hours, payrate, gross, fedtax, statetax, ssitax, taxamount, net;
 	public final float FED_TAXRATE = 0.15f, STATE_TAXRATE = 0.07f, SSI_TAXRATE = 0.0775f; 
 	EmployeeRecord(){
-		
+		this("","",0.0f,0.0f);
 	}
-	EmployeeRecord(String lastname, String firstname, float h, float pr, float defr) {
+	EmployeeRecord(String lastname, String firstname, float h, float pr) {
 		this.LastName = lastname;
 		this.FirstName = firstname;
 		this.hours = h;
 		this.payrate = pr;
-		this.deferred = defr;
 	}
 	EmployeeRecord(EmployeeRecord e){
 		this.LastName = e.LastName;
 		this.FirstName = e.FirstName;
 		this.hours = e.hours;
 		this.payrate = e.payrate;
-		this.deferred = e.deferred;
-	}
-	
+	}	
 }
