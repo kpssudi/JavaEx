@@ -13,6 +13,8 @@ public class EmployeeTester {
 	public static void main(String[] args) throws IOException{
 		Employees newEmps = new Employees((short)10);
 		String output_file = "output.txt";
+		String searchName;
+		int searchEid;
 	//	EmployeeRecord empRecord = new EmployeeRecord("SP", "Pheng", 14f, 15.50f);
 	//	Employee newEmp1 = new Employee("DP", "Dee", 13f, 15.50f);
         try {
@@ -30,7 +32,8 @@ public class EmployeeTester {
                 float hr = Float.parseFloat(details[2]);
                 float pr = Float.parseFloat(details[3]);
                 Employee p = new Employee(ln, fn, hr, pr);
-                newEmps.add(p);                
+                newEmps.add(p);
+                //newEmps.add(ln, fn, hr, pr);
             }
 
 /*            for(int i=0; i < newEmps.){
@@ -40,10 +43,32 @@ public class EmployeeTester {
         } catch (FileNotFoundException e) {         
             e.printStackTrace();
         }
-// Writing payroll (reports) to a file
+//Search employee in the record
+        searchName = "Whittle";
+        if(newEmps.search(searchName) != null) {
+        	System.out.println(newEmps.getNext().toString());        	
+        } else {
+        	System.out.println("Searched employee '" + searchName + "' not Found!");
+        }
+//Writing payroll (reports) to a file
+//        newEmps.sort();
+        
     try {
         ReportWriter data = new ReportWriter(output_file, true);
-        data.writeToFile("This is additional line");
+        //data.writeToFile("\nThis is additional line");
+        data.writeToFile("Employee" + "\t" + "Pay" + "\t" +  
+							"Hours" + "\t" + "Gross" + "\t" + 
+							"Tax" + "\t" + "Net\n");
+        data.writeToFile("Name" + "\t" + "Rate" + "\t" +  
+							"Worked" + "\t" + "Pay" + "\t" + 
+							"Amount" + "\t" + "Pay\n");
+        data.writeToFile("========" + "\t" + "======" + "\t" +  
+							"======" + "\t" + "======" + "\t" + 
+							"======" + "\t" + "======\n");
+        newEmps.start();
+        while(newEmps.hasNext()) {
+        	data.writeToFile(newEmps.getNext().toString());
+        }
         
     } catch (IOException e) {
     	System.out.println(e.getMessage());

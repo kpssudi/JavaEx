@@ -47,7 +47,8 @@ Employees
 public class EmployeeRecord {
 	public String LastName, FirstName;
 	public float hours, payrate, gross, fedtax, statetax, ssitax, taxamount, net;
-	public final float FED_TAXRATE = 0.15f, STATE_TAXRATE = 0.07f, SSI_TAXRATE = 0.0775f; 
+	public final float FED_TAXRATE = 0.15f, STATE_TAXRATE = 0.07f, SSI_TAXRATE = 0.0775f;
+	public int eID;
 	EmployeeRecord(){
 		this("","",0.0f,0.0f);
 	}
@@ -62,5 +63,9 @@ public class EmployeeRecord {
 		this.FirstName = e.FirstName;
 		this.hours = e.hours;
 		this.payrate = e.payrate;
-	}	
+	}
+	public String toString() {
+		return new String(LastName + ", " + FirstName + "\t" + hours + "\t" + payrate + "\t" + gross + "\t" + 
+				taxamount + "\t" + net);
+	}
 }

@@ -9,4 +9,21 @@ Whittle, Ed	11.50	25.50	293.25	43.99	249.26
 
 Totals	66.00	200.50	2,869.56	430.43	2,439.13
 Averages	13.20	40.10	573.91	86.09	487.83
-This is additional line
+
+
+
+*****************
+
+
+
+Employee	Pay	Hours	Gross	Tax	Net
+
+Name	Rate	Worked	Pay	Amount	Pay
+
+========	======	======	======	======	======
+
+Marion, Louise	13.0	40.0	520.0	154.7	365.3
+Davidson, Carl	8.75	38.0	332.5	98.918755	233.58124
+Whittle, Ed	11.5	25.5	293.25	87.241875	206.00812
+Doe, John	17.0	46.5	790.5	235.17375	555.32623
+Prentiss, Paula	15.75	50.5	795.375	236.62405	558.751

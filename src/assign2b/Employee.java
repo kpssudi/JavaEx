@@ -54,17 +54,7 @@ public class Employee {
 	public void set(EmployeeRecord empRec){
 		e = empRec;
 	}
-/*	public void set(float gr) {
-		e.gross = gr;
-	}
-	public void set(float ta) {
-		e.taxamount = ta;
-	}
-	public void set(float na) {
-		e.net = na;
-	}*/
-
-/*	public String toString(){
-		
-	}*/
+	public String toString(){
+		return new String(e.LastName + ", " + e.FirstName + "\t" + e.hours + "\t" + e.payrate 
+				+ "\t" + e.gross + "\t" + e.taxamount + "\t" + e.net);	}
 }
