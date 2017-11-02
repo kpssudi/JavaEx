@@ -1,3 +1,4 @@
+/* Put calculation for Overtime*/
 package assign2b;
 /**
  * Employee
@@ -56,7 +57,7 @@ public class Employee {
 	}
 	public String toString(){
 		String fullName = e.LastName + ", " + e.FirstName;
-		String formatStr = "%-10s %-25s %-15s %-15s %-15s %-15s %-15s%n";
+		String formatStr = "%-15s %-25s %8.2f %15.2f %15.2f %15.2f %15.2f%n";
 		return String.format(formatStr, e.eID, fullName, e.hours, e.payrate, e.gross, e.taxamount, e.net);
 	}
 }

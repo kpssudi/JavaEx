@@ -66,7 +66,7 @@ public class EmployeeRecord {
 	}
 	public String toString() {
 		String fullName = LastName + ", " + FirstName;
-		String formatStr = "%-10s %-25s %-15s %-15s %-15s %-15s %-15s%n";
+		String formatStr = "%-15s %-25s %8.2f %15.2f %15.2f %15.2f %15.2f%n";
 		return String.format(formatStr, eID, fullName, hours, payrate, gross, taxamount, net);				
 	}
 }

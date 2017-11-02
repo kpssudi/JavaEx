@@ -48,35 +48,16 @@ public class EmployeeTester {
         	System.out.println("Searched employee '" + searchEid + "' not Found!");
         }
         
-//Delete employee in the record
-        searchName = "Carl";
-        newEmps.delete(searchName);
-        Employees.QsortbyEid(newEmps.get(), 0, newEmps.numEmps-1);
-//        Employees.QsortbyLastname(newEmps.get(), 0, newEmps.numEmps-1);
-        newEmps.start();
-        while(newEmps.hasNext()) {
-    		EmployeeRecord empList = newEmps.getNext();
-    		if(empList != null) 
-    		System.out.println(empList.toString());
-        }
-/*        searchEid = 104;
-        newEmps.delete(searchEid);
-        newEmps.start();
-        while(newEmps.hasNext()) {
-    		EmployeeRecord empList = newEmps.getNext();
-    		if(empList != null) 
-    		System.out.println(empList.toString());
-        }*/
 
 //Writing payroll (reports) to a file
-        Employees.QsortbyEid(newEmps.get(), 0, newEmps.numEmps-1);
-        
+        Employees.QsortbyEid(newEmps.get(), 0, newEmps.numEmps-1);        
     try {
 	        ReportWriter data = new ReportWriter(output_file, true);
-			String formatStr = "%-10s %-25s %-15s %-15s %-15s %-15s %-15s";
+			String formatStr = "%-15s %-25s %-15s %-15s %-15s %-15s %-15s";
+			String formatStrNum = "%-15s %-25s %8.2f %15.2f %15.2f %15.2f %15.2f%n";
 			data.writeToFile(String.format(formatStr,"Employee", "Employee", "Pay", "Hours", "Gross", "Tax", "Net"));
 			data.writeToFile(String.format(formatStr,"ID", "Name", "Rate", "Worked", "Pay", "Amount", "Pay"));
-			data.writeToFile(String.format(formatStr,"======", "========", "======", "======", "======", "======", "======"));
+			data.writeToFile(String.format(formatStr,"========", "============", "========", "========", "========", "========", "========"));
 	        newEmps.start();
 	        EmployeeRecord tmpEmpRec = new EmployeeRecord();
 	        while(newEmps.hasNext()) {
@@ -89,12 +70,34 @@ public class EmployeeTester {
 	        	data.writeToFile(tmpEmpRec.toString());
 	        }
         //Write summary to the output file
-			data.writeToFile(String.format(formatStr,"Totals", "", totPayRate, totHrsWkd, totGrossPay, totTaxAmt, totNetPay));
-			data.writeToFile(String.format(formatStr,"Average", "", (totPayRate/newEmps.numEmps), (totHrsWkd/newEmps.numEmps), (totGrossPay/newEmps.numEmps), (totTaxAmt/newEmps.numEmps), (totNetPay/newEmps.numEmps)));
+	        data.writeToFile("");
+	        data.writeToFile(String.format(formatStr,"", "", "========", "========", "========", "========", "========"));
+			data.writeToFile(String.format(formatStrNum,"Totals", "", totPayRate, totHrsWkd, totGrossPay, totTaxAmt, totNetPay));
+			data.writeToFile(String.format(formatStrNum,"Average", "", (totPayRate/newEmps.numEmps), (totHrsWkd/newEmps.numEmps), (totGrossPay/newEmps.numEmps), (totTaxAmt/newEmps.numEmps), (totNetPay/newEmps.numEmps)));
     	} 
     catch (IOException e) {
     		System.out.println(e.getMessage());
     }
+    
+  //Delete employee in the record
+    searchName = "Carl";
+    newEmps.delete(searchName);
+    Employees.QsortbyEid(newEmps.get(), 0, newEmps.numEmps-1);
+//    Employees.QsortbyLastname(newEmps.get(), 0, newEmps.numEmps-1);
+    newEmps.start();
+    while(newEmps.hasNext()) {
+		EmployeeRecord empList = newEmps.getNext();
+		if(empList != null) 
+		System.out.println(empList.toString());
+    }
+/*        searchEid = 104;
+    newEmps.delete(searchEid);
+    newEmps.start();
+    while(newEmps.hasNext()) {
+		EmployeeRecord empList = newEmps.getNext();
+		if(empList != null) 
+		System.out.println(empList.toString());
+    }*/
     
 //Testing all add cases
 /*        newEmps.add("Doe", "John", 40f, 15.50f);

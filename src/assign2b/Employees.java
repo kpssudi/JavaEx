@@ -168,7 +168,7 @@ public class Employees {
 	public String toString(){
 		Employee empStr = new Employee();
 		String fullName = empStr.get().LastName + ", " + empStr.get().FirstName;
-		String formatStr = "%-10s %-25s %-15s %-15s %-15s %-15s %-15s%n";
+		String formatStr = "%-15s %-25s %8.2f %15.2f %15.2f %15.2f %15.2f%n";
 		return String.format(formatStr, empStr.get().eID, fullName, empStr.get().hours, empStr.get().payrate, empStr.get().gross, empStr.get().taxamount, empStr.get().net);
 	}
 }
