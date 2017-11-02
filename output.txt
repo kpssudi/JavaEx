@@ -1,29 +1,13 @@
-Employee	Pay	Hours	Gross	Tax	Net
-Name	Rate	Worked	Pay	Amount	Pay
-========	====	======	=====	======	=====
-Davidson, Carl	8.75	38.00	332.50	49.88	282.63
-Doe, John	17.00	46.50	845.75	126.86	718.89
-Marion, Louise	13.00	40.00	520.00	78.00	442.00
-Prentiss, Paula	15.75	50.50	878.06	131.71	746.35
-Whittle, Ed	11.50	25.50	293.25	43.99	249.26
+Employee   Employee                  Pay             Hours           Gross           Tax             Net            
+ID         Name                      Rate            Worked          Pay             Amount          Pay            
+======     ========                  ======          ======          ======          ======          ======         
+100        Louise, Marion            13.0            40.0            520.0           154.7           365.0          
 
-Totals	66.00	200.50	2,869.56	430.43	2,439.13
-Averages	13.20	40.10	573.91	86.09	487.83
+102        Ed, Whittle               11.5            25.5            293.25          87.241875       206.25         
 
+103        John, Doe                 17.0            46.5            790.5           235.17375       555.5          
 
+104        Paula, Prentiss           15.75           50.5            795.375         236.62405       558.375        
 
-*****************
-
-
-
-Employee	Pay	Hours	Gross	Tax	Net
-
-Name	Rate	Worked	Pay	Amount	Pay
-
-========	======	======	======	======	======
-
-Marion, Louise	13.0	40.0	520.0	154.7	365.3
-Davidson, Carl	8.75	38.0	332.5	98.918755	233.58124
-Whittle, Ed	11.5	25.5	293.25	87.241875	206.00812
-Doe, John	17.0	46.5	790.5	235.17375	555.32623
-Prentiss, Paula	15.75	50.5	795.375	236.62405	558.751
+Totals                               162.5           57.25           2399.125        713.7396        1685.125       
+Average                              40.625          14.3125         599.78125       178.4349        421.28125      

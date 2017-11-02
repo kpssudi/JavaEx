@@ -2,10 +2,6 @@ package assign2b;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-//import java.util.ArrayList;
-//import java.util.List;
-//http://www.homeandlearn.co.uk/java/write_to_textfile.html
-//https://codereview.stackexchange.com/questions/15062/reading-a-line-from-a-text-file-and-splitting-its-contents
 import java.util.Scanner;
 
 public class EmployeeTester {
@@ -15,63 +11,89 @@ public class EmployeeTester {
 		String output_file = "output.txt";
 		String searchName;
 		int searchEid;
-	//	EmployeeRecord empRecord = new EmployeeRecord("SP", "Pheng", 14f, 15.50f);
-	//	Employee newEmp1 = new Employee("DP", "Dee", 13f, 15.50f);
+		float totPayRate, totHrsWkd, totGrossPay, totTaxAmt, totNetPay;
+		totPayRate = totHrsWkd = totGrossPay = totTaxAmt = totNetPay = 0;
         try {
         	//String path = System.getProperty("user.dir");
             File f = new File("input.txt");
             Scanner sc = new Scanner(f);
-
-            //List<Employees> people = new ArrayList<Employees>();
-
             while(sc.hasNextLine()){
                 String line = sc.nextLine();
                 String[] details = line.split("\t");
-                String ln = details[0];
-                String fn = details[1];                
+                String fn = details[0];                
+                String ln = details[1];
                 float hr = Float.parseFloat(details[2]);
                 float pr = Float.parseFloat(details[3]);
                 Employee p = new Employee(ln, fn, hr, pr);
                 newEmps.add(p);
                 //newEmps.add(ln, fn, hr, pr);
             }
-
-/*            for(int i=0; i < newEmps.){
-                System.out.println(p.toString());
-            }*/
             sc.close();
         } catch (FileNotFoundException e) {         
             e.printStackTrace();
         }
 //Search employee in the record
-        searchName = "Whittle";
+        // Search by Lastname
+        searchName = "Carl";
         if(newEmps.search(searchName) != null) {
-        	System.out.println(newEmps.getNext().toString());        	
+        	System.out.println(newEmps.search(searchName).toString());        	
         } else {
         	System.out.println("Searched employee '" + searchName + "' not Found!");
         }
-//Writing payroll (reports) to a file
-//        newEmps.sort();
-        
-    try {
-        ReportWriter data = new ReportWriter(output_file, true);
-        //data.writeToFile("\nThis is additional line");
-        data.writeToFile("Employee" + "\t" + "Pay" + "\t" +  
-							"Hours" + "\t" + "Gross" + "\t" + 
-							"Tax" + "\t" + "Net\n");
-        data.writeToFile("Name" + "\t" + "Rate" + "\t" +  
-							"Worked" + "\t" + "Pay" + "\t" + 
-							"Amount" + "\t" + "Pay\n");
-        data.writeToFile("========" + "\t" + "======" + "\t" +  
-							"======" + "\t" + "======" + "\t" + 
-							"======" + "\t" + "======\n");
-        newEmps.start();
-        while(newEmps.hasNext()) {
-        	data.writeToFile(newEmps.getNext().toString());
+        // Search by eID
+        searchEid = 102;
+        if(newEmps.search(searchEid) != null) {
+        	System.out.println(newEmps.search(searchEid).toString());        	
+        } else {
+        	System.out.println("Searched employee '" + searchEid + "' not Found!");
         }
         
-    } catch (IOException e) {
-    	System.out.println(e.getMessage());
+//Delete employee in the record
+        searchName = "Carl";
+        newEmps.delete(searchName);
+        Employees.QsortbyEid(newEmps.get(), 0, newEmps.numEmps-1);
+//        Employees.QsortbyLastname(newEmps.get(), 0, newEmps.numEmps-1);
+        newEmps.start();
+        while(newEmps.hasNext()) {
+    		EmployeeRecord empList = newEmps.getNext();
+    		if(empList != null) 
+    		System.out.println(empList.toString());
+        }
+/*        searchEid = 104;
+        newEmps.delete(searchEid);
+        newEmps.start();
+        while(newEmps.hasNext()) {
+    		EmployeeRecord empList = newEmps.getNext();
+    		if(empList != null) 
+    		System.out.println(empList.toString());
+        }*/
+
+//Writing payroll (reports) to a file
+        Employees.QsortbyEid(newEmps.get(), 0, newEmps.numEmps-1);
+        
+    try {
+	        ReportWriter data = new ReportWriter(output_file, true);
+			String formatStr = "%-10s %-25s %-15s %-15s %-15s %-15s %-15s";
+			data.writeToFile(String.format(formatStr,"Employee", "Employee", "Pay", "Hours", "Gross", "Tax", "Net"));
+			data.writeToFile(String.format(formatStr,"ID", "Name", "Rate", "Worked", "Pay", "Amount", "Pay"));
+			data.writeToFile(String.format(formatStr,"======", "========", "======", "======", "======", "======", "======"));
+	        newEmps.start();
+	        EmployeeRecord tmpEmpRec = new EmployeeRecord();
+	        while(newEmps.hasNext()) {
+	        	tmpEmpRec = newEmps.getNext();
+	        	totPayRate += tmpEmpRec.payrate;
+	        	totHrsWkd += tmpEmpRec.hours;
+	        	totGrossPay += tmpEmpRec.gross;
+	        	totTaxAmt += tmpEmpRec.taxamount;
+	        	totNetPay += tmpEmpRec.net;
+	        	data.writeToFile(tmpEmpRec.toString());
+	        }
+        //Write summary to the output file
+			data.writeToFile(String.format(formatStr,"Totals", "", totPayRate, totHrsWkd, totGrossPay, totTaxAmt, totNetPay));
+			data.writeToFile(String.format(formatStr,"Average", "", (totPayRate/newEmps.numEmps), (totHrsWkd/newEmps.numEmps), (totGrossPay/newEmps.numEmps), (totTaxAmt/newEmps.numEmps), (totNetPay/newEmps.numEmps)));
+    	} 
+    catch (IOException e) {
+    		System.out.println(e.getMessage());
     }
     
 //Testing all add cases

@@ -65,7 +65,8 @@ public class EmployeeRecord {
 		this.payrate = e.payrate;
 	}
 	public String toString() {
-		return new String(LastName + ", " + FirstName + "\t" + hours + "\t" + payrate + "\t" + gross + "\t" + 
-				taxamount + "\t" + net);
+		String fullName = LastName + ", " + FirstName;
+		String formatStr = "%-10s %-25s %-15s %-15s %-15s %-15s %-15s%n";
+		return String.format(formatStr, eID, fullName, hours, payrate, gross, taxamount, net);				
 	}
 }

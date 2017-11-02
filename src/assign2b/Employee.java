@@ -35,18 +35,18 @@ public class Employee {
 	
 	public float calcGross (){
 		e.gross = e.hours * e.payrate;
-		return e.gross;
+		return Math.round((e.gross * 100.0)/100.0);
 	}
 	public float calcTaxes (){		
 		e.fedtax = e.gross * e.FED_TAXRATE;
 		e.statetax = e.gross * e.STATE_TAXRATE;
 		e.ssitax = e.gross * e.SSI_TAXRATE;
 		e.taxamount = e.fedtax + e.statetax + e.ssitax;
-		return e.taxamount;
+		return Math.round((e.taxamount * 100.0)/100.0);
 	}
 	public float calcNet () {
 		e.net = e.gross - (calcTaxes());
-		return e.net; //e.fedtax + e.statetax + e.ssitax
+		return Math.round((e.net * 100.0)/100.0); //e.fedtax + e.statetax + e.ssitax
 	}
 	public EmployeeRecord get() {
 		return e;
@@ -55,6 +55,8 @@ public class Employee {
 		e = empRec;
 	}
 	public String toString(){
-		return new String(e.LastName + ", " + e.FirstName + "\t" + e.hours + "\t" + e.payrate 
-				+ "\t" + e.gross + "\t" + e.taxamount + "\t" + e.net);	}
+		String fullName = e.LastName + ", " + e.FirstName;
+		String formatStr = "%-10s %-25s %-15s %-15s %-15s %-15s %-15s%n";
+		return String.format(formatStr, e.eID, fullName, e.hours, e.payrate, e.gross, e.taxamount, e.net);
+	}
 }
