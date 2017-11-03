@@ -35,7 +35,12 @@ public class Employee {
 	}
 	
 	public float calcGross (){
-		e.gross = e.hours * e.payrate;
+		if (e.hours < 40) {
+			e.gross = e.hours * e.payrate;
+		} else {
+			e.gross = 40 * e.payrate;
+			e.gross += (e.hours - 40) * (1.5 * e.payrate); 
+		}		
 		return Math.round((e.gross * 100.0)/100.0);
 	}
 	public float calcTaxes (){		

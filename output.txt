@@ -1,19 +1,19 @@
-Employee        Employee                  Pay             Hours           Gross           Tax             Net            
-ID              Name                      Rate            Worked          Pay             Amount          Pay            
+Employee        Employee                  Hours           Pay             Gross           Tax             Net            
+ID              Name                      Worked          Rate            Pay             Amount          Pay            
 ========        ============              ========        ========        ========        ========        ========       
-100             Louise, Marion               13.00           40.00          520.00          154.70          365.00
+101             Paula, Prentiss              50.50           15.75          878.06          261.22          617.06
 
-101             Carl, Davidson                8.75           38.00          332.50           98.92          233.50
+102             Carl, Davidson               38.00            8.75          332.50           98.92          233.50
 
-102             Ed, Whittle                  11.50           25.50          293.25           87.24          206.25
+103             Louise, Marion               40.00           13.00          520.00          154.70          365.00
 
-103             John, Doe                    17.00           46.50          790.50          235.17          555.50
+104             John, Doe                    46.50           17.00          845.75          251.61          593.75
 
-104             Paula, Prentiss              15.75           50.50          795.38          236.62          558.38
+105             Ed, Whittle                  25.50           11.50          293.25           87.24          206.25
 
 
                                           ========        ========        ========        ========        ========       
-Totals                                      200.50           66.00         2731.63          812.66         1918.63
+Totals                                       66.00          200.50         2869.56          853.69         2015.56
 
-Average                                      40.10           13.20          546.33          162.53          383.73
+Average                                      13.20           40.10          573.91          170.74          403.11
 

@@ -19,7 +19,7 @@ package assign2b;
 public class Employees {
 	private Employee[] emps;
 	public int numEmps = 0;
-	private int numID = 100;
+	private int numID = 105;
 	private int cursor;
 	
 	public Employees() {
@@ -52,7 +52,7 @@ public class Employees {
 	}
 	public void add(Employee emp) {
 		emps[numEmps] = emp;
-		emps[numEmps].get().eID = numID++;
+		emps[numEmps].get().eID = numID--;
 		emps[numEmps].calcGross();
 		emps[numEmps].calcTaxes();
 		emps[numEmps].calcNet();

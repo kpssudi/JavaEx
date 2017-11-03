@@ -22,8 +22,8 @@ public class EmployeeTester {
                 String[] details = line.split("\t");
                 String fn = details[0];                
                 String ln = details[1];
-                float hr = Float.parseFloat(details[2]);
-                float pr = Float.parseFloat(details[3]);
+                float pr = Float.parseFloat(details[2]);
+                float hr = Float.parseFloat(details[3]);
                 Employee p = new Employee(ln, fn, hr, pr);
                 newEmps.add(p);
                 //newEmps.add(ln, fn, hr, pr);
@@ -32,31 +32,20 @@ public class EmployeeTester {
         } catch (FileNotFoundException e) {         
             e.printStackTrace();
         }
-//Search employee in the record
-        // Search by Lastname
-        searchName = "Carl";
-        if(newEmps.search(searchName) != null) {
-        	System.out.println(newEmps.search(searchName).toString());        	
-        } else {
-        	System.out.println("Searched employee '" + searchName + "' not Found!");
-        }
-        // Search by eID
-        searchEid = 102;
-        if(newEmps.search(searchEid) != null) {
-        	System.out.println(newEmps.search(searchEid).toString());        	
-        } else {
-        	System.out.println("Searched employee '" + searchEid + "' not Found!");
-        }
         
 
 //Writing payroll (reports) to a file
         Employees.QsortbyEid(newEmps.get(), 0, newEmps.numEmps-1);        
     try {
+    		File wf = new File("output.txt");
+    		 if (wf.exists()) {
+    		     wf.delete(); //you might want to check if delete was successfull
+    		     }
 	        ReportWriter data = new ReportWriter(output_file, true);
 			String formatStr = "%-15s %-25s %-15s %-15s %-15s %-15s %-15s";
 			String formatStrNum = "%-15s %-25s %8.2f %15.2f %15.2f %15.2f %15.2f%n";
-			data.writeToFile(String.format(formatStr,"Employee", "Employee", "Pay", "Hours", "Gross", "Tax", "Net"));
-			data.writeToFile(String.format(formatStr,"ID", "Name", "Rate", "Worked", "Pay", "Amount", "Pay"));
+			data.writeToFile(String.format(formatStr,"Employee", "Employee", "Hours", "Pay", "Gross", "Tax", "Net"));
+			data.writeToFile(String.format(formatStr,"ID", "Name", "Worked", "Rate", "Pay", "Amount", "Pay"));
 			data.writeToFile(String.format(formatStr,"========", "============", "========", "========", "========", "========", "========"));
 	        newEmps.start();
 	        EmployeeRecord tmpEmpRec = new EmployeeRecord();
@@ -78,9 +67,28 @@ public class EmployeeTester {
     catch (IOException e) {
     		System.out.println(e.getMessage());
     }
+
+  //Search employee in the record
+    // Search by Lastname
+    searchName = "Carl";
+    if(newEmps.search(searchName) != null) {
+    	System.out.println("Searched by Lastname: " + searchName + "\n");
+    	System.out.println(newEmps.search(searchName).toString());        	
+    } else {
+    	System.out.println("Searched employee '" + searchName + "' not Found!");
+    }
+    // Search by eID
+    searchEid = 102;
+    if(newEmps.search(searchEid) != null) {
+    	System.out.println("Searched by eID: " + searchEid + "\n");
+    	System.out.println(newEmps.search(searchEid).toString());        	
+    } else {
+    	System.out.println("Searched employee '" + searchEid + "' not Found!");
+    }
     
   //Delete employee in the record
     searchName = "Carl";
+	System.out.println("Delete record with surname: " + searchName + "\n");
     newEmps.delete(searchName);
     Employees.QsortbyEid(newEmps.get(), 0, newEmps.numEmps-1);
 //    Employees.QsortbyLastname(newEmps.get(), 0, newEmps.numEmps-1);
@@ -90,8 +98,10 @@ public class EmployeeTester {
 		if(empList != null) 
 		System.out.println(empList.toString());
     }
-/*        searchEid = 104;
+/*    searchEid = 104;
+	System.out.println("Delete record with eID: " + searchEid + "\n");
     newEmps.delete(searchEid);
+    //Employees.QsortbyEid(newEmps.get(), 0, newEmps.numEmps-1);
     newEmps.start();
     while(newEmps.hasNext()) {
 		EmployeeRecord empList = newEmps.getNext();
