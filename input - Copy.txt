@@ -1,0 +1,5 @@
+Doe	John	Hourly	17.00	46.50
+Whittle	Ed	PieceWork	11.50	25.50
+Marion	Louise	PieceWork	13.00	40.00
+Prentiss	Paula	Salaried	15.75	50.50
+Davidson	Carl	Hourly	8.75	38.00
