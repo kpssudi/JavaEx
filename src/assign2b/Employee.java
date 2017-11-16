@@ -3,7 +3,7 @@ package assign2b;
 /**
  * Employee
 (-) EmployeeRecord e //data
-(+) Employee ( )
+(+) Employee ()
 (+) Employee(string lastname,firstname;float h,pr,defr)
 (+) Employee(EmployeeRecord e)
 (+) calcGross ()

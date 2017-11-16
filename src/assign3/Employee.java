@@ -13,7 +13,7 @@ package assign3;
 (+) String toString()
  *
  */
-public class Employee {
+public abstract class Employee {
 	private EmployeeRecord e;
 	
 	public Employee(){
@@ -34,15 +34,7 @@ public class Employee {
 		e.payrate = emp.payrate;
 	}
 	
-	public float calcGross (){
-		if (e.hours < 40) {
-			e.gross = e.hours * e.payrate;
-		} else {
-			e.gross = 40 * e.payrate;
-			e.gross += (e.hours - 40) * (1.5 * e.payrate); 
-		}		
-		return Math.round((e.gross * 100.0)/100.0);
-	}
+	public abstract float calcGross ();
 	public float calcTaxes (){		
 		e.fedtax = e.gross * e.FED_TAXRATE;
 		e.statetax = e.gross * e.STATE_TAXRATE;
@@ -53,7 +45,7 @@ public class Employee {
 	public float calcNet () {
 		e.net = e.gross - (calcTaxes());
 		return Math.round((e.net * 100.0)/100.0); //e.fedtax + e.statetax + e.ssitax
-	}
+	}	
 	public EmployeeRecord get() {
 		return e;
 	}
